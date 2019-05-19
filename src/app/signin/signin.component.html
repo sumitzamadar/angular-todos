@@ -1,0 +1,28 @@
+﻿<div>
+    <form #f="ngForm"
+          class="form-signin" 
+          [formGroup]="signinForm" 
+          [ngClass]="{'was-validated': f.submitted}" 
+          (ngSubmit)="f.form.valid && signIn(signinForm.value)" 
+           novalidate>
+        <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="75" height="75" />
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !signinForm.controls.username.valid }">
+            <label for="Username" class="sr-only">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Username" formControlName="username" required autofocus />
+            <div *ngIf="f.submitted && !signinForm.controls.username.valid" class="invalid-feedback">Username is required</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !signinForm.controls.password.valid }">
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password" required />
+            <div *ngIf="f.submitted && !signinForm.controls.password.valid" class="invalid-feedback">Password is required</div>
+        </div>
+    
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <a [routerLink]="['/signup']" class="btn btn-link">Sign up</a>
+    </form>
+</div>
+

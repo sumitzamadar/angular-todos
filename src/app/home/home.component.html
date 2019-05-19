@@ -1,0 +1,14 @@
+﻿<main role="main" class="container">
+    <div class="">
+        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+            <img class="mr-3" src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg" alt="" width="48" height="48">
+            <div class="lh-100">
+                <h2 class="mb-0 text-white lh-100">Hi {{currentUser.firstName}}!</h2>
+            </div>
+        </div>
+
+        <app-todolist></app-todolist>
+
+        <p><a href="" (click)="logOut()" class="btn btn-link">Logout</a></p>
+    </div>
+</main>
